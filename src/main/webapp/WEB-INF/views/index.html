@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>VHTM</title>
+</head>
+<body>
+<form th:object="${user}" method="post" th:action="@{/validateUser}">
+    <table>
+        <tr>
+            <th>Name</th>
+            <td><input th:field="*{name}"></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td><input th:field="*{age}"></td>
+            <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
